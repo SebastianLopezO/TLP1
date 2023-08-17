@@ -1,0 +1,14 @@
+import java.io.FileReader;
+
+class Main {
+	public static void main (String[] args) {
+		String dir = System.getProperty("user.dir");
+		try {
+			FileReader File = new FileReader(dir+"\\Datos.txt");
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.print("No encontro el archivo en: "+dir+"\\Datos.txt");
+		}
+		
+	}
+}
