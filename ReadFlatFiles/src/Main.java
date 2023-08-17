@@ -16,7 +16,7 @@ class Main {
 					if(data[0].equals("1020")) {
 						System.out.print("El usuario es "+data[1]);
 					}
-					line="";
+					line=""; 
 				}else {
 					line+=((char)c);
 				}
