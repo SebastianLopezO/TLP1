@@ -1,4 +1,0 @@
-ABCD
-EFGH
-1021,Carlos,20-05-20,100
-1020,Jose Botero,20-05-20,100
