@@ -15,10 +15,10 @@ public class Main {
 			switch (Option) {
 			case "1. Cargar Datos":
 				ArrayList<ArrayList<String>> data = ReadFilePlane();
-				System.out.printf("%-20s %-20s %-20s %-20s %-20s","Id","Name","Birth","Sex","Expenses");
+				System.out.printf("%-20s%-20s%-20s%-20s%-20s\n","Id","Name","Birth","Sex","Expenses");
 				for(ArrayList<String> register: data) {
 					for(String dt: register) {
-						System.out.printf("%-25s",dt);
+						System.out.printf("%-20s",dt);
 					}
 					System.out.println();
 				}
