@@ -1,0 +1,4 @@
+54,Colombia,COL
+61,Australia,AUD
+1,Estados Unidos,USA
+15,colombia,col

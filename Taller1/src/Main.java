@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -15,6 +13,7 @@ public class Main {
 			switch (Option) {
 			case "1. Cargar Datos":
 				ArrayList<ArrayList<String>> data = ReadFilePlane();
+				
 				System.out.printf("%-20s%-20s%-20s%-20s%-20s\n","Id","Name","Birth","Sex","Expenses");
 				for(ArrayList<String> register: data) {
 					for(String dt: register) {
@@ -22,6 +21,7 @@ public class Main {
 					}
 					System.out.println();
 				}
+				WriteFileRandom(data);
 				break;
 			case "2. Consultas":
 				cons = true;
@@ -82,7 +82,12 @@ public class Main {
 		return data;
 	}
 	
-	public static void CreateRandom() {
-		
+	public static void WriteFileRandom(ArrayList<ArrayList<String>> data) {
+		String root = System.getProperty("user.dir");
+		try {
+		RandomAccessFile File = new RandomAccessFile(root+"\\src\\Aleatorio.txt","rw");
+		}catch(IOException e){
+			System.out.print("Hubo un error: "+e);
+		}
 	}
 }
