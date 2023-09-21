@@ -1,5 +1,7 @@
 package computer;
 public class Chasis{
+	private String Marca;
+	private String Modelo;
 	private int largoPlaca;
 	private int anchoPlaca;
 	private int ranuras;
@@ -10,6 +12,8 @@ public class Chasis{
 	
 	//Default Constructor
 	public Chasis() {
+		this.Marca = "";
+		this.Modelo = "";
 		this.largoPlaca = 0;
 		this.anchoPlaca = 0;
 		this.ranuras = 0;
@@ -85,6 +89,22 @@ public class Chasis{
 
 	public void setProfundidad(int profundidad) {
 		this.profundidad = profundidad;
+	}
+
+	public String getMarca() {
+		return Marca;
+	}
+
+	public void setMarca(String marca) {
+		Marca = marca;
+	}
+
+	public String getModelo() {
+		return Modelo;
+	}
+
+	public void setModelo(String modelo) {
+		Modelo = modelo;
 	}
 	
 	
