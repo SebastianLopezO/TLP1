@@ -15,29 +15,29 @@ import computer.*;
 
 public class Main{
 	public static void main(String args[]) {
-		Boolean App=true; //Control de App
-		String option=""; //Options
+		Boolean App=true, AppPC=true; //Control de App
+		String option="", optionPc=""; //Options
 		
 		Computer C = new Computer(); //Puntero
 		ArrayList<Computer> Computers =  new ArrayList<>(); // Datos
 		
 		while(App) {
+			AppPC=false;
 			option = Menu();
 			switch(option) {
 				case "Ingresar Computador":
 					break;
-				case "Modificar Computador":
-					C = SelectedComputer();
-					break;
-				case "Eliminar Computador":
-					break;
-				case "Mostar Computador":
+				case "Buscar Computador":
+					String NamePC = SelectedComputer(Computers);
+					C = FindComputer(Computers,NamePC);
+					if(C!=null) {
+						AppPC=true;
+					}
 					break;
 				case "Mostrar":
 					for(Computer PC: Computers) {
 						PC.Show();
 					}
-					
 					break;
 				case "Guardar":
 					break;
@@ -47,6 +47,21 @@ public class Main{
 					App = false;
 					break;
 			}
+			
+			while(AppPC) {
+				optionPc = MenuPC(NamePC);
+				switch(optionPc) {
+				case "Visualizar Computador":
+					break;
+				case "Modificar Computador":
+					break;
+				case "Eliminar Computador":
+					break;
+				case "Volver":
+					AppPC=false;
+					break;
+				}
+			}
 		}
 		
 
@@ -55,8 +70,7 @@ public class Main{
 	public static String Menu() {
         String[] Options = {
         		"Ingresar Computador",
-                "Modificar Computador",
-                "Eliminar Computador",
+        		"Buscar Computador",
                 "Guardar",
                 "Resetear",
                 "Salir"
@@ -72,9 +86,9 @@ public class Main{
         return Option;
     }
 	
-	public static String MenuPC() {
+	public static String MenuPC(String NamePC) {
         String[] Options = {
-        		"Ingresar Computador",
+        		"Visualizar Computador",
                 "Modificar Computador",
                 "Eliminar Computador",
                 "Volver"
@@ -82,7 +96,7 @@ public class Main{
         String Option = (String) JOptionPane.showInputDialog(
                 null,
                 "Seleccione una Opcion: ",
-                "Computadores Poli",
+                "Computador "+NamePC,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 Options,
@@ -90,8 +104,13 @@ public class Main{
         return Option;
     }
 	
-	public static int SelectedComputer(String[] Options) {
-
+	public static String SelectedComputer(ArrayList<Computer> Computers) {
+		String[] Options = new String[Computers.size()];
+		int i=0;
+		for(Computer PC: Computers) {
+			Options[i] = PC.getName();
+			i++;
+		}
 		
 		String Option = (String) JOptionPane.showInputDialog(
 				null, 
@@ -102,7 +121,15 @@ public class Main{
 				Options, 
 				Options[0]);
 		
-		return 
-
+		return Option;
+	}
+	
+	public static Computer FindComputer(ArrayList<Computer> Computers,String NameComputer) {
+		for(Computer PC: Computers) {
+			if(PC.getName().matches(NameComputer)) {
+				return PC;
+			}
+		}
+		return null;
 	}
 }
