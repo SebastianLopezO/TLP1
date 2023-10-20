@@ -1,16 +1,14 @@
-package Bean;
+package bean;
 
 import java.time.LocalDate;
 
-public class Values {
+public class BValores {
 
 	private String		cadena;
 	private int			entero;
 	private LocalDate	fecha;
 	private char		caracter;
 	private float		flotante;
-	
-	
 	public String getCadena() {
 		return cadena;
 	}

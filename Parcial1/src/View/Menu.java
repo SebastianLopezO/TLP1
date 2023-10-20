@@ -2,7 +2,7 @@ package View;
 
 import java.util.Scanner;
 
-import Logic.LoadValues;
+import Logic.ControlValues;
 import Utility.FileManagement;
 
 public class Menu {
@@ -13,6 +13,8 @@ public class Menu {
 		String root = System.getProperty("user.dir");
 		
 		boolean app = true;
+		
+		
 		
 		//Cargar menu
 		String[] options = {"Captura Valores","Transformar Valores","Listar","Salir"};
@@ -31,15 +33,15 @@ public class Menu {
 			{
 				case 1 :
 					FileManagement.DeleteFile(root+"/src/database/squentialFlat.txt");
-					InputValues pedirValores = new InputValues();
+					new InputValues();
 					break;
 				case 2 :
 					FileManagement.DeleteFile(root+"/src/database/randomFlat.txt");
-					LoadValues lValores = new LoadValues();
+					ControlValues lValores = new ControlValues();
 					lValores.transformarDatosAleatorio();
 					break;				
 				case 3 :
-					LoadValues.listarDatosAleatorio();
+					new ControlValues().listarDatosAleatorio();
 					break;		
 				case 4:
 					System.out.println("Lo esperamos.");

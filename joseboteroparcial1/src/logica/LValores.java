@@ -1,4 +1,4 @@
-package Logic;
+package logica;
 
 import java.io.FileWriter;
 import java.io.BufferedWriter;
@@ -9,19 +9,19 @@ import java.io.RandomAccessFile;
 import java.time.LocalDate;
 import java.io.IOException;
 
-import Bean.Values;
-import Utility.FileManagement;
+import bean.BValores;
+import utilidades.ManejoArchivos;
 
-public class LoadValues extends Values{
+public class LValores extends BValores{
 
-	public LoadValues() {}
+	public LValores() {}
 	
-	public LoadValues(Values valores) {
+	public LValores(BValores valores) {
 		guardarDatosPlano(valores);
 		
 	}
 	
-	private void guardarDatosPlano(Values valores) {
+	private void guardarDatosPlano(BValores valores) {
 		try 
 		{
 			FileWriter 		archivo 	= new FileWriter("./datos/datosValores.txt",true);
