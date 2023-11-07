@@ -1,10 +1,8 @@
-package servicios;
+package Services;
 
-import javax.ejb.Remote;
+import jakarta.ejb.Remote;
 
 @Remote
 public interface SaludoBeanRemote {
-
 	public abstract String saludo(String nombre);
-
 }

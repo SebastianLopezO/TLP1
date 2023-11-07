@@ -49,7 +49,7 @@ public class Main{
 			}
 			
 			while(AppPC) {
-				optionPc = MenuPC(NamePC);
+				optionPc = MenuPC("NamePC");
 				switch(optionPc) {
 				case "Visualizar Computador":
 					break;
