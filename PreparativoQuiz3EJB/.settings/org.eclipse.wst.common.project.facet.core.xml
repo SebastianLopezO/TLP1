@@ -3,6 +3,6 @@
   <runtime name="WildFly"/>
   <fixed facet="jst.ejb"/>
   <fixed facet="java"/>
-  <installed facet="java" version="17"/>
   <installed facet="jst.ejb" version="4.0"/>
+  <installed facet="java" version="11"/>
 </faceted-project>
