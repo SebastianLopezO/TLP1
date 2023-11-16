@@ -10,13 +10,15 @@ import javax.naming.NamingException;
 import Bean.Person;
 import Bean.PersonRemote;
 import Logic.Student;
+import Logic.StudentRemote;
 import Utility.Validate;
 
-public class InputValues{
-	
+public class InputValues {
+
 	public InputValues() {
 
 		PersonRemote Person;
+		StudentRemote Student;
 		try {
 			// Services
 
@@ -55,12 +57,12 @@ public class InputValues{
 				Estudiantes.add(Estudiante);
 				ciclos++;
 			} while (ciclos < 3);
+			Student = (StudentRemote) InitialContext.doLookup("/PreparativoQuiz3EJB/Student!Logic.StudentRemote");
 			new Student().WriteData(Estudiantes);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Se ha generado un error al intentar cargar el esquema de ingreso de datos: "+e.getMessage());
+			System.out.println(
+					"Se ha generado un error al intentar cargar el esquema de ingreso de datos: " + e.getMessage());
 		}
 	}
-}	
-
-	
+}
