@@ -1,7 +1,9 @@
 package View;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import Bean.Person;
 import Logic.Student;
 import Utility.FileManagement;
 
