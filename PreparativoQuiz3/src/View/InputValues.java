@@ -35,7 +35,7 @@ public class InputValues {
 				Person Estudiante = new Person();
 				Scanner sc = new Scanner(System.in);
 				System.out.println("Ciclo" + (ciclos + 1));
-				Estudiante.setId(ciclos + 1);
+				Estudiante.setId(1);
 				System.out.println("    Ingrese los nombre del estudiante: ");
 				Estudiante.setName(sc.nextLine());
 
