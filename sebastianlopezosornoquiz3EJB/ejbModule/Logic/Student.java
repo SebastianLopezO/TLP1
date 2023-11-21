@@ -97,22 +97,30 @@ public class Student implements StudentRemote {
 
 	public void Show() {
 		System.out.println("");
-		System.out.printf(Clr.BG_BL+"%" + 35 + "s%s%" + 35 + "s\n", "", "Registros:", "");
-		System.out.printf("%-20s%-20s%-20s%-20s%-1s\n","Id","Name","LastName","Date Birth",""+Clr.RT);
+		System.out.println(Clr.BG_BL+"¯".repeat(121));
+		System.out.printf("%-1s%-54s%-11s%-54s%-1s\n","|", "", "Estudiantes", "","|");
+		System.out.println("-".repeat(121));
+		System.out.printf("%-10s%-20s%-10s%-20s%-10s%-20s%-10s%-20s%-1s\n","|","Id","|","Name","|","LastName","|","Date Birth","|");
+		System.out.println("-".repeat(121));
 		ArrayList<Person> data = this.ReadData();
 		if(data==null) {
 			data = new ArrayList<Person>();
 		}
 		boolean color=true;
 		for (Person P : data) {
-			if(color) { System.out.print(Clr.BG_G); color=false; }else { System.out.print(Clr.BG_Y); color=true;}
+			if(color) { System.out.print(Clr.RT); color=false; }else { System.out.print(Clr.BG_BL); color=true;}
+			System.out.printf("%-10s","|");
 			System.out.printf("%-20s",P.getId());
+			System.out.printf("%-10s","|");
 			System.out.printf("%-20s",P.getName());
+			System.out.printf("%-10s","|");
 			System.out.printf("%-20s",P.getLastname());
+			System.out.printf("%-10s","|");
 			System.out.printf("%-20s",P.getDateBirth());
+			System.out.printf("%-1s","|");
 			System.out.print(Clr.RT+"\n");
-			
 		}
+		System.out.println("¯".repeat(121)+Clr.RT);
 		System.out.println();
 	}
 	
