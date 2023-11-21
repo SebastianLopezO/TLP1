@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import Bean.Person;
 import Database.FileManagement;
+import Utility.Clr;
 import jakarta.ejb.LocalBean;
 import jakarta.ejb.Stateless;
 
@@ -95,11 +96,30 @@ public class Student implements StudentRemote {
 	}
 
 	public void Show() {
+		System.out.println("");
+		System.out.printf(Clr.BG_BL+"%" + 35 + "s%s%" + 35 + "s\n", "", "Registros:", "");
+		System.out.printf("%-20s%-20s%-20s%-20s%-1s\n","Id","Name","LastName","Date Birth",""+Clr.RT);
 		ArrayList<Person> data = this.ReadData();
-		for (Person P : data) {
-			String line = P.getId() + " - " + P.getName() + " " + P.getLastname() + " " + P.getDateBirth();
-			System.out.println(line);
+		if(data==null) {
+			data = new ArrayList<Person>();
 		}
+		boolean color=true;
+		for (Person P : data) {
+			if(color) { System.out.print(Clr.BG_G); color=false; }else { System.out.print(Clr.BG_Y); color=true;}
+			System.out.printf("%-20s",P.getId());
+			System.out.printf("%-20s",P.getName());
+			System.out.printf("%-20s",P.getLastname());
+			System.out.printf("%-20s",P.getDateBirth());
+			System.out.print(Clr.RT+"\n");
+			
+		}
+		System.out.println();
+	}
+	
+	public void Truncate(){
+		System.out.println("Se ha eliminado los siguientes registros: ");
+		this.Show();
+		FileManagement.DeleteFile("DataSerialized.txt");
 	}
 
 	@Override

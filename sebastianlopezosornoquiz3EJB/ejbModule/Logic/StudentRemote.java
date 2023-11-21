@@ -13,4 +13,6 @@ public interface StudentRemote extends PersonRemote {
 	public ArrayList<Person> ReadData();
 
 	public void Show();
+	
+	public void Truncate();
 }
